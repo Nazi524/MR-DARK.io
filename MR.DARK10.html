@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MR DARK - Catalogue</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+			margin: 0;
+			padding: 0;
+			background: linear-gradient(to right, #1e1e1e, #121212);
+			color: #fff;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			overflow-x: hidden;
+		}
+
+		.navbar {
+			background-color: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 15px;
+			text-align: center;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+			width: 100%;
+			position: fixed;
+			top: 0;
+			z-index: 1000;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.navbar a {
+			color: white;
+			margin: 0 10px;
+			text-decoration: none;
+			font-weight: bold;
+			transition: color 0.3s;
+		}
+
+		.navbar a:hover {
+			color: #ff9900;
+		}
+
+		.navbar img {
+			height: 50px;
+			animation: logoAnimation 4s ease-in-out;
+		}
+
+		@keyframes logoAnimation {
+			0% {
+				transform: scale(0.5);
+				opacity: 7;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		.container {
+			margin-top: 100px;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.8);
+			padding: 29px;
+			border-radius: 25px;
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+			transition: transform 0.3s ease-in-out;
+			color: #37db52;
+			max-width: 90%;
+		}
+
+		.container:hover {
+			transform: scale(1.05);
+		}
+
+		h1 {
+			color: #f2f0f0;
+			margin-bottom: 20px;
+		}
+
+		.link-buttons {
+			margin: 20px 0;
+		}
+
+		.link-buttons a {
+			display: inline-block;
+			text-decoration: none;
+			color: #000;
+			background-color: #fff;
+			padding: 10px 20px;
+			margin: 10px 10px;
+			border-radius: 30px;
+			transition: transform 0.2s, box-shadow 0.2s;
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.link-buttons a::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.3);
+			transition: left 0.5s ease-in-out;
+		}
+
+		.link-buttons a:hover::before {
+			left: 100%;
+		}
+
+		.link-buttons a:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+		}
+
+		.catalogue-container {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 20px;
+			justify-content: center;
+			margin-top: 20px;
+			width: 100%;
+		}
+
+		.item {
+			background: #1e1e1e;
+			border-radius: 20px;
+			margin: 15px;
+			padding: 20px;
+			width: calc(100% / 4 - 40px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+			transition: transform 0.3s, box-shadow 0.3s;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.item img {
+			width: 100%;
+			height: auto;
+			border-radius: 50%;
+			margin-bottom: 10px;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.item:hover img {
+			transform: scale(1.1);
+		}
+
+		.item:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+		}
+
+		.item h3 {
+			margin: 0;
+			color: #fff;
+		}
+
+		.item p {
+			margin: 10px 0;
+			color: #bbb;
+		}
+
+		.item .price {
+			font-weight: bold;
+			color: #ff9900;
+		}
+
+		.whatsapp-btn {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 10px;
+			background-color: #25D366;
+			color: white;
+			border: none;
+			border-radius: 30px;
+			cursor: pointer;
+			text-decoration: none;
+			text-align: center;
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+			transition: background-color 0.3s, box-shadow 0.3s;
+		}
+
+		.whatsapp-btn:hover {
+			background-color: #128C7E;
+			box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+		}
+
+		@media (max-width: 768px) {
+			.item {
+				width: calc(50% - 30px);
+			}
+		}
+
+		@media (max-width: 480px) {
+			.item {
+				width: calc(100% - 30px);
+			}
+			.navbar {
+				flex-direction: column;
+			}
+			.navbar a {
+				margin: 5px 0;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar">
+        <img src="https://i.postimg.cc/zXsRmdNd/MR-DARK-20.png" alt="Logo MR DARK">	<div>
+			<a href="#home">Accueil</a>
+			<a href="#tshirts">T-shirts</a>
+			<a href="#sweats">Sweats</a>
+			<a href="#cargo">Cargo</a>
+			<a href="#shorts">Shorts</a>
+		</div>
+	</div>
+
+	<div class="container" id="home">
+		<h1>MR DARK HOME</h1>
+		<div class="link-buttons">
+			<a href="https://wa.me/+2250170098155?text=Bonjour">Envoyer un message WhatsApp</a>
+			<a href="tel:+2250170098155">Contacter service de vente</a>
+			<a href="mailto:exemple@gmail.com?subject=Bonjour&body=Ceci est un test.">Envoyer un email</a>
+		</div>
+	</div>
+
+	<div class="catalogue-container">
+		<div class="item" id="tshirts">
+			<img src="https://scontent.fabj7-1.fna.fbcdn.net/v/t45.5328-4/452387985_1050360723125637_531055560004563990_n.jpg?stp=dst-jpg_s960x960&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=63Fx70soW6MQ7kNvgHwL71r&_nc_ht=scontent.fabj7-1.fna&oh=00_AYDsRCaUmROsTnwzfgjL9Xn8VeFp3Idt529D98JrI2ZfFw&oe=66A71D18" alt="T-shirt Basique">
+			<h3>T-shirt overeize</h3>
+			<p>Description: T-shirt 100% coton, overseize, confortable et durable.</p>
+			<p class="price">Prix: 7500 Fcfa</p>
+			<a href="#" class="whatsapp-btn" onclick="sendWhatsApp('T-shirt Basique', 'T-shirt 100% coton, confortable et durable.', '7500 Fcfa')">Commander via WhatsApp</a>
+		</div>
+
+		
+        <div class="item" id="sweats">
+            <img src="https://scontent.fabj7-1.fna.fbcdn.net/v/t45.5328-4/452764359_825180029828471_5267391992526995624_n.jpg?stp=dst-jpg_s960x960&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=-NH26_LpKK8Q7kNvgHm3h_s&_nc_ht=scontent.fabj7-1.fna&oh=00_AYDV-k6egN0zeXyAkz_qqfG7tNBoBt_ikh54H_yS0UKtPg&oe=66A72259" alt="Sweat à Capuche">
+            <h3>Sweat à Capuche</h3>
+            <p>Description: Sweat en cotton, idéal pour les journées fraîches.</p>
+            <p class="price">Prix: 12000 Fcfa</p>
+            <a href="#" class="whatsapp-btn"
+                onclick="sendWhatsApp('Sweat à Capuche', 'Sweat en molleton, idéal pour les journées fraîches.', '1200 Fcfa')">Commander
+                via WhatsApp</a>
+        </div>
+
+        <div class="item" id="Short Cargo">
+            <img src="https://scontent.fabj7-1.fna.fbcdn.net/v/t45.5328-4/452368089_1133018284462378_1934626478413825345_n.jpg?stp=dst-jpg_s960x960&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=hxkfFbC6El8Q7kNvgHV25mE&_nc_ht=scontent.fabj7-1.fna&oh=00_AYAWiw4YmmH3IsOztnbd0MPtzeHH4uMTs8ZX9GSD2SuzUg&oe=66A730F7" alt="Short Cargo">
+            <h3>Short Cargo</h3>
+            <p>Description: Short cargo avec plusieurs poches pratiques.</p>
+            <p class="price">Prix: 7500 Fcfa</p>
+            <a href="#" class="whatsapp-btn"
+                onclick="sendWhatsApp('Pantalon Cargo', 'Short cargo avec plusieurs poches pratiques.', '1000 Fcfa')">Commander
+                via WhatsApp</a>
+        </div>
+
+        <div class="item" id="T-shirt">
+            <img src="https://scontent.fabj7-1.fna.fbcdn.net/v/t45.5328-4/452452437_1211799623599972_425254946397424243_n.jpg?stp=dst-jpg_s960x960&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=iOpBWzY7chAQ7kNvgEixFl9&_nc_ht=scontent.fabj7-1.fna&oh=00_AYALVgtvLQKCd3cJBn4iYADoTN2Xr8EyaumkuwM5VKq_-g&oe=66A74242" alt="T-shirt overeize noir">
+            <h3>T-shirt overeize noir</h3>
+            <p>Description: T-shirt 100% coton, overseize, confortable et durable.</p>
+            <p class="price">Prix: 7500 Fcfa</p>
+            <a href="#" class="whatsapp-btn"
+                onclick="sendWhatsApp('Description: T-shirt 100% coton, overseize, confortable et durable.', '7500 Fcfa')">Commander
+                via WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+		function sendWhatsApp(productName, description, price) {
+			const phoneNumber = '225170098155'; // Remplacez par le numéro de téléphone correct
+			const message = `Je voudrais commander:\n\n${productName}\nDescription: ${description}\nPrix: ${price}`;
+			const whatsappURL = `https://wa.me/${2250170098155}?text=${encodeURIComponent(message)}`;
+			window.open(whatsappURL, '_blank');
+		}
+
+ // Animation au chargement
+ window.onload = () => {
+            const items = document.querySelectorAll('.item');
+            items.forEach((item, index) => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+		</script>
+</body>
+
+</html>
+      
